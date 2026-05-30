@@ -1,3 +1,23 @@
+/* Bulle de dialogue du lion */
+.lion {
+    position: relative;
+}
+.lion-bulle {
+    display: none;
+    position: absolute;
+    left: 40px;
+    top: 0;
+    background: #fffbe6;
+    border: 1px solid #c9a23f;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 1rem;
+    color: #a67c00;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 10;
+    white-space: nowrap;
+    font-family: sans-serif;
+}
 /* Flèche haut flottante, image brute */
 .scroll-top-btn {
     position: fixed;

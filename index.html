@@ -9,7 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Compteur de Rubis <span class="lion"><img src="images/lion.png" alt="Lion Gryffondor" class="lion-img" width="32" height="32" /></span></h1>
+    <h1>Compteur de Rubis 
+        <span class="lion">
+            <img src="images/lion.png" alt="Lion Gryffondor" class="lion-img" width="32" height="32" />
+            <span class="lion-bulle">Roaaarr !!</span>
+        </span>
+    </h1>
     <a href="#bas-page" class="scroll-bottom-btn" title="Aller en bas">
         <img src="images/bas.png" alt="Aller en bas" width="24" height="24" />
     </a>
@@ -36,5 +41,20 @@
     </div>
     <div id="bas-page"></div>
     <script src="script.js"></script>
+    <script>
+    // Affiche la bulle "Roaaarr" au survol du lion
+    document.addEventListener('DOMContentLoaded', function() {
+        const lion = document.querySelector('.lion-img');
+        const bulle = document.querySelector('.lion-bulle');
+        if (lion && bulle) {
+            lion.addEventListener('mouseenter', () => {
+                bulle.style.display = 'inline-block';
+            });
+            lion.addEventListener('mouseleave', () => {
+                bulle.style.display = 'none';
+            });
+        }
+    });
+    </script>
 </body>
 </html>
