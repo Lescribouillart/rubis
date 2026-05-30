@@ -89,8 +89,12 @@ h1 {
     width: 28px;
     height: 28px;
     vertical-align: middle;
-    filter: drop-shadow(0 0 8px #ff0033cc) drop-shadow(0 0 2px #fff8);
+    filter: none;
     transition: filter 0.2s;
+}
+
+.ruby-img:hover {
+    filter: drop-shadow(0 0 8px #ff0033cc) drop-shadow(0 0 2px #fff8);
 }
 
 #defis-form {
