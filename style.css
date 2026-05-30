@@ -1,3 +1,32 @@
+/* Flèche haut flottante, image brute */
+.scroll-top-btn {
+    position: fixed;
+    right: 32px;
+    bottom: 90px;
+    z-index: 100;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Bouton flottant pour descendre en bas de page (index.html) */
+.scroll-bottom-btn {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    z-index: 100;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    /* plus aucune animation ni effet */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* Bouton retour pour resultat.html */
 .retour-btn {
     position: absolute;
