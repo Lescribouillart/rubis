@@ -32,9 +32,21 @@ body {
 
 h1 {
     text-align: center;
-    color: #ff5252;
+    font-family: 'MedievalSharp', cursive, serif;
+    font-size: 2.7em;
+    color: #ffd700;
     margin-top: 30px;
-    text-shadow: 0 2px 8px #0002;
+    letter-spacing: 2px;
+    text-shadow:
+        0 2px 8px #0002,
+        0 0 8px #b71c1c,
+        2px 2px 0 #b71c1c,
+        0 0 2px #fff8;
+    background: linear-gradient(90deg, #ffd700 60%, #b71c1c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 #rubis-total {
