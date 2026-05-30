@@ -10,15 +10,23 @@
 <body>
     <h1>Compteur de Rubis <span class="lion"><img src="images/lion.png" alt="Lion Gryffondor" class="lion-img" width="32" height="32" /></span></h1>
     <div id="rubis-total">
-        <span>Total :&nbsp;</span><span id="total-rubis">0</span>
+        <span>Total :&nbsp;</span>
+        <span id="total-rubis">0</span>
         <span class="ruby">
             <img src="images/rubis.png" alt="Rubis" class="ruby-img" width="28" height="28" />
         </span>
     </div>
+    <div class="reset-btn-container">
+        <button id="reset-btn" type="button" class="reset-btn-inline">
+            <img src="images/reinitialiser.png" alt="Réinitialiser" width="28" height="28" style="vertical-align: middle;" />
+        </button>
+    </div>
     <form id="defis-form">
         <!-- Les défis seront générés ici par JavaScript -->
     </form>
-    <button id="reset-btn">Réinitialiser</button>
+    <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+        <button id="valider-btn" type="button">Valider</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

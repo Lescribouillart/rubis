@@ -473,5 +473,77 @@ function addListeners() {
 }
 
 renderForm();
-addListeners();
+
+// Ajout du bouton Valider
+function getSelectedActivities() {
+    let activites = [];
+    defis.forEach((cat) => {
+        cat.defis.forEach((defi) => {
+            if (defi.type === 'checkbox') {
+                const input = document.getElementById(defi.id);
+                if (input && input.checked) {
+                    let rubis = defi.rubis;
+                    let nom = defi.titre;
+                    if (defi.bonus) {
+                        const bonusInput = document.getElementById(`${defi.id}-bonus`);
+                        if (bonusInput && bonusInput.checked) {
+                            rubis += defi.bonus;
+                            nom += ' (+bonus)';
+                        }
+                    }
+                    activites.push({ nom, rubis });
+                }
+            } else if (defi.type === 'number') {
+                if (Array.isArray(defi.rubis)) {
+                    defi.rubis.forEach((val, idx) => {
+                        const input = document.getElementById(`${defi.id}-${idx}`);
+                        if (input && parseInt(input.value) > 0) {
+                            activites.push({ nom: `${defi.titre} - ${defi.label[idx]}`, rubis: val * parseInt(input.value) });
+                        }
+                    });
+                } else {
+                    const input = document.getElementById(defi.id);
+                    if (input && parseInt(input.value) > 0) {
+                        activites.push({ nom: defi.titre, rubis: defi.rubis * parseInt(input.value) });
+                    }
+                }
+            } else if (defi.type === 'ecrivain') {
+                const nRPG = parseInt(document.getElementById(`${defi.id}-rpg`).value || 0);
+                const nRPGp = parseInt(document.getElementById(`${defi.id}-rpgp`).value || 0);
+                const nRPGpp = parseInt(document.getElementById(`${defi.id}-rpgpp`).value || 0);
+                const totalPosts = nRPG + nRPGp + nRPGpp;
+                if (totalPosts >= defi.seuil) {
+                    let rubis = defi.rubis + nRPGp * 1 + nRPGpp * 2;
+                    let nom = `${defi.titre} (${nRPG} RPG, ${nRPGp} RPG+, ${nRPGpp} RPG++)`;
+                    activites.push({ nom, rubis });
+                }
+            }
+        });
+    });
+    return activites;
+}
+
+function getTotalRubis(activites) {
+    return activites.reduce((acc, act) => acc + act.rubis, 0);
+}
+
+function onValider() {
+    const activites = getSelectedActivities();
+    const total = getTotalRubis(activites);
+    // Stocker dans localStorage
+    localStorage.setItem('rubisResult', JSON.stringify({ activites, total }));
+    window.location.href = 'resultat.html';
+}
+
+function addListenersV2() {
+    form.addEventListener('input', calculerRubis);
+    form.addEventListener('change', calculerRubis);
+    document.getElementById('reset-btn').addEventListener('click', () => {
+        form.reset();
+        calculerRubis();
+    });
+    document.getElementById('valider-btn').addEventListener('click', onValider);
+}
+
+addListenersV2();
 calculerRubis();

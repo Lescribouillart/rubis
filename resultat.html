@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat des rubis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Résultat <span class="lion-result-only"><img src="images/lion.png" alt="Lion Gryffondor" class="lion-img" width="32" height="32" /></span></h1>
+    <div class="resultat-container">
+        <div class="resultat-format-select">
+            <label><input type="radio" name="format" value="texte" checked> Texte</label>
+            <label><input type="radio" name="format" value="bbcode"> BBCode</label>
+        </div>
+        <textarea id="resultat" rows="16" class="resultat-textarea"></textarea>
+        <button id="copy-btn" class="resultat-copy-btn">Copier</button>
+    </div>
+    <script src="validform.js"></script>
+</body>
+</html>
