@@ -10,7 +10,12 @@
     <a href="index.html" class="retour-btn" title="Retour">
         <img src="images/retour.png" alt="Retour" width="36" height="36" style="vertical-align: middle;" />
     </a>
-    <h1>Résultat <span class="lion-result-only"><img src="images/lion.png" alt="Lion Gryffondor" class="lion-img" width="32" height="32" /></span></h1>
+    <h1>Résultat 
+        <span class="lion lion-result-only">
+            <img src="images/lion.png" alt="Lion Gryffondor" class="lion-img" width="32" height="32" />
+            <span class="lion-bulle">Roaaarr</span>
+        </span>
+    </h1>
     <div class="resultat-container">
         <div class="resultat-format-select">
             <label><input type="radio" name="format" value="texte" checked> Texte</label>
@@ -20,5 +25,20 @@
         <button id="copy-btn" class="resultat-copy-btn">Copier</button>
     </div>
     <script src="validform.js"></script>
+    <script>
+    // Affiche la bulle "Roaaarr" au survol du lion sur la page résultat
+    document.addEventListener('DOMContentLoaded', function() {
+        const lion = document.querySelector('.lion-img');
+        const bulle = document.querySelector('.lion-bulle');
+        if (lion && bulle) {
+            lion.addEventListener('mouseenter', () => {
+                bulle.style.display = 'inline-block';
+            });
+            lion.addEventListener('mouseleave', () => {
+                bulle.style.display = 'none';
+            });
+        }
+    });
+    </script>
 </body>
 </html>
