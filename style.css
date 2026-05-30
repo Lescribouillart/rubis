@@ -1,9 +1,21 @@
+
 .lion {
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
     position: relative;
     top: -18px;
+}
+
+
+.ruby-img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    filter: none;
+    transition: filter 0.2s;
+    position: relative;
+    top: -3px;
 }
 
 .lion-img {
@@ -83,14 +95,6 @@ h1 {
     display: inline-block;
     vertical-align: middle;
     margin-left: 8px;
-}
-
-.ruby-img {
-    width: 28px;
-    height: 28px;
-    vertical-align: middle;
-    filter: none;
-    transition: filter 0.2s;
 }
 
 .ruby-img:hover {
